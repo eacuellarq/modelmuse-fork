@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, VirtualTrees, StdCtrls;
+  Dialogs, VirtualTrees, VirtualTrees.Types, StdCtrls;
 
 type
   TCanCloseEvent = procedure(Sender: TObject; var CanClose: Boolean) of object;
