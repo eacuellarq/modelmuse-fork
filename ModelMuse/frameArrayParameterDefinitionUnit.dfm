@@ -1,0 +1,191 @@
+inherited frameArrayParameterDefinition: TframeArrayParameterDefinition
+  inherited pnlParameterCount: TPanel
+    TabOrder = 2
+    StyleElements = [seFont, seClient, seBorder]
+    inherited lblNumParameters: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited seNumberOfParameters: TJvSpinEdit
+      StyleElements = [seFont, seClient, seBorder]
+    end
+  end
+  inherited dgParameters: TRbwDataGrid4
+    Top = 61
+    Height = 127
+    ColCount = 4
+    TabOrder = 1
+    OnMouseUp = dgParametersMouseUp
+    OnColSize = dgParametersColSize
+    OnHorizontalScroll = dgParametersHorizontalScroll
+    Columns = <
+      item
+        AutoAdjustRowHeights = False
+        AutoAdjustCaptionRowHeights = False
+        ButtonCaption = 'F()'
+        ButtonFont.Charset = DEFAULT_CHARSET
+        ButtonFont.Color = clWindowText
+        ButtonFont.Height = -11
+        ButtonFont.Name = 'Tahoma'
+        ButtonFont.Style = []
+        ButtonUsed = False
+        ButtonWidth = 35
+        CheckMax = False
+        CheckMin = False
+        ComboUsed = False
+        Format = rcf4String
+        LimitToList = False
+        MaxLength = 10
+        ParentButtonFont = False
+        WordWrapCaptions = False
+        WordWrapCells = False
+        CaseSensitivePicklist = False
+        CheckStyle = csCheck
+        AutoAdjustColWidths = True
+      end
+      item
+        AutoAdjustRowHeights = False
+        AutoAdjustCaptionRowHeights = False
+        ButtonCaption = 'F()'
+        ButtonFont.Charset = DEFAULT_CHARSET
+        ButtonFont.Color = clWindowText
+        ButtonFont.Height = -11
+        ButtonFont.Name = 'Tahoma'
+        ButtonFont.Style = []
+        ButtonUsed = False
+        ButtonWidth = 35
+        CheckMax = False
+        CheckMin = False
+        ComboUsed = False
+        Format = rcf4Real
+        LimitToList = False
+        MaxLength = 0
+        ParentButtonFont = False
+        WordWrapCaptions = False
+        WordWrapCells = False
+        CaseSensitivePicklist = False
+        CheckStyle = csCheck
+        AutoAdjustColWidths = True
+      end
+      item
+        AutoAdjustRowHeights = False
+        AutoAdjustCaptionRowHeights = False
+        ButtonCaption = 'F()'
+        ButtonFont.Charset = DEFAULT_CHARSET
+        ButtonFont.Color = clWindowText
+        ButtonFont.Height = -11
+        ButtonFont.Name = 'Tahoma'
+        ButtonFont.Style = []
+        ButtonUsed = False
+        ButtonWidth = 35
+        CheckMax = False
+        CheckMin = False
+        ComboUsed = False
+        Format = rcf4Boolean
+        LimitToList = False
+        MaxLength = 0
+        ParentButtonFont = False
+        WordWrapCaptions = False
+        WordWrapCells = False
+        CaseSensitivePicklist = False
+        CheckStyle = csCheck
+        AutoAdjustColWidths = False
+      end
+      item
+        AutoAdjustRowHeights = False
+        AutoAdjustCaptionRowHeights = False
+        ButtonCaption = 'F()'
+        ButtonFont.Charset = DEFAULT_CHARSET
+        ButtonFont.Color = clWindowText
+        ButtonFont.Height = -11
+        ButtonFont.Name = 'Tahoma'
+        ButtonFont.Style = []
+        ButtonUsed = False
+        ButtonWidth = 35
+        CheckMax = False
+        CheckMin = False
+        ComboUsed = False
+        Format = rcf4Boolean
+        LimitToList = False
+        MaxLength = 0
+        ParentButtonFont = False
+        WordWrapCaptions = False
+        WordWrapCells = False
+        CaseSensitivePicklist = False
+        CheckStyle = csCheck
+        AutoAdjustColWidths = False
+      end>
+    ExplicitTop = 61
+    ExplicitHeight = 127
+  end
+  object pnlTop: TPanel
+    Left = 0
+    Top = 0
+    Width = 320
+    Height = 57
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object lblParamValue: TLabel
+      Left = 24
+      Top = 8
+      Width = 75
+      Height = 15
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'lblParamValue'
+      Enabled = False
+    end
+    object rdeParamValue: TRbwDataEntry
+      Left = 25
+      Top = 31
+      Width = 33
+      Height = 22
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Color = clBtnFace
+      Enabled = False
+      TabOrder = 0
+      Text = '0'
+      OnChange = rdeParamValueChange
+      DataType = dtReal
+      Max = 1.000000000000000000
+      ChangeDisabledColor = True
+    end
+    object cbUseZone: TCheckBox
+      Left = 64
+      Top = 35
+      Width = 97
+      Height = 17
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'cbUseZone'
+      Enabled = False
+      TabOrder = 1
+      OnClick = cbUseZoneClick
+    end
+    object cbUseMultiplier: TCheckBox
+      Left = 167
+      Top = 35
+      Width = 97
+      Height = 17
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Caption = 'cbUseMultiplier'
+      Enabled = False
+      TabOrder = 2
+      OnClick = cbUseMultiplierClick
+    end
+  end
+end

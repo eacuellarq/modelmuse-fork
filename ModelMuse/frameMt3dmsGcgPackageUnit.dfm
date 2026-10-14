@@ -1,0 +1,242 @@
+inherited frameMt3dmsGcgPackage: TframeMt3dmsGcgPackage
+  Width = 357
+  Height = 393
+  ExplicitWidth = 357
+  ExplicitHeight = 393
+  DesignSize = (
+    357
+    393)
+  inherited lblComments: TLabel
+    StyleElements = [seFont, seClient, seBorder]
+  end
+  inherited lblPackage: TLabel
+    StyleElements = [seFont, seClient, seBorder]
+  end
+  object lblMaxOuter: TLabel [2]
+    Left = 92
+    Top = 160
+    Width = 240
+    Height = 15
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = 'Maximum number of outer iterations MXITER'
+  end
+  object lblMaxInner: TLabel [3]
+    Left = 92
+    Top = 187
+    Width = 227
+    Height = 15
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = 'Maximum number of inner iterations ITER1'
+  end
+  object lblPreconditioner: TLabel [4]
+    Left = 16
+    Top = 214
+    Width = 125
+    Height = 15
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = 'Preconditioner (ISOLVE)'
+  end
+  object lblDispersion: TLabel [5]
+    Left = 16
+    Top = 259
+    Width = 187
+    Height = 15
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = 'Dispersion tensor treatment (NCRS)'
+  end
+  object lblRelaxationFactor: TLabel [6]
+    Left = 92
+    Top = 308
+    Width = 130
+    Height = 15
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = 'Relaxation factor (ACCL)'
+  end
+  object lblConvergence: TLabel [7]
+    Left = 92
+    Top = 336
+    Width = 171
+    Height = 15
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = 'Convergence criterion (CCLOSE)'
+  end
+  object lblPrintoutInterval: TLabel [8]
+    Left = 92
+    Top = 364
+    Width = 137
+    Height = 15
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = 'Printout interval (IPRGCG)'
+  end
+  inherited memoComments: TMemo
+    Width = 326
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 326
+  end
+  object spinMaxOuter: TJvSpinEdit [10]
+    Left = 16
+    Top = 157
+    Width = 70
+    Height = 23
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    CheckMaxValue = False
+    MinValue = 1.000000000000000000
+    Value = 1.000000000000000000
+    Enabled = False
+    TabOrder = 1
+  end
+  object spinMaxInner: TJvSpinEdit [11]
+    Left = 16
+    Top = 184
+    Width = 70
+    Height = 23
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    CheckMaxValue = False
+    MinValue = 1.000000000000000000
+    Value = 1.000000000000000000
+    Enabled = False
+    TabOrder = 2
+  end
+  object comboPreconditioner: TComboBox [12]
+    Left = 14
+    Top = 233
+    Width = 198
+    Height = 23
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Style = csDropDownList
+    Enabled = False
+    ItemIndex = 2
+    TabOrder = 3
+    Text = 'Modified Incomplete Cholesky (3)'
+    OnChange = rcSelectionControllerEnabledChange
+    Items.Strings = (
+      'Jacobi (1)'
+      'SSOR (2)'
+      'Modified Incomplete Cholesky (3)')
+  end
+  object comboDispersion: TComboBox [13]
+    Left = 16
+    Top = 278
+    Width = 302
+    Height = 23
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Style = csDropDownList
+    Enabled = False
+    ItemIndex = 0
+    TabOrder = 4
+    Text = 'Lump all dispersion cross terms to the right-hand-side (0)'
+    Items.Strings = (
+      'Lump all dispersion cross terms to the right-hand-side (0)'
+      'Include full dispersion tensor (1)')
+  end
+  object rdeRelaxationFactor: TRbwDataEntry [14]
+    Left = 16
+    Top = 305
+    Width = 70
+    Height = 22
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Color = clBtnFace
+    Enabled = False
+    TabOrder = 5
+    Text = '0'
+    DataType = dtReal
+    Max = 1.000000000000000000
+    CheckMin = True
+    ChangeDisabledColor = True
+  end
+  object rdeConvergence: TRbwDataEntry [15]
+    Left = 16
+    Top = 333
+    Width = 70
+    Height = 22
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Color = clBtnFace
+    Enabled = False
+    TabOrder = 6
+    Text = '0'
+    DataType = dtReal
+    Max = 1.000000000000000000
+    CheckMin = True
+    ChangeDisabledColor = True
+  end
+  object spinPrintoutInterval: TJvSpinEdit [16]
+    Left = 16
+    Top = 361
+    Width = 70
+    Height = 23
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    CheckMinValue = True
+    Enabled = False
+    TabOrder = 7
+  end
+  inherited rcSelectionController: TRbwController
+    ControlList = <
+      item
+        Control = lblComments
+      end
+      item
+        Control = memoComments
+      end
+      item
+        Control = spinMaxOuter
+      end
+      item
+        Control = spinMaxInner
+      end
+      item
+        Control = comboPreconditioner
+      end
+      item
+        Control = comboDispersion
+      end
+      item
+        Control = rdeConvergence
+      end
+      item
+        Control = spinPrintoutInterval
+      end>
+    OnEnabledChange = rcSelectionControllerEnabledChange
+  end
+end

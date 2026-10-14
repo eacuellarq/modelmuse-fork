@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" modified="2025-05-13T14:00:58.056-04:00" lasteditedby="rbwinst" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Version 5.2</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Version 5.2</text></para>
+    </header>
+    <para styleclass="Normal" style="text-indent:-18px; margin-left:18px;"><image src="hmtoggle_plus0.gif" scale="100.00%" styleclass="Normal" figurelistinclude="0"></image><tab /><toggle type="dropdown" print-expanded="true" help-expanded="true" defaultstyle="true" translate="true" src-collapsed="hmtoggle_plus0.gif" src-expanded="hmtoggle_plus1.gif" styleclass="Heading2_atoc_"><caption translate="true"><![CDATA[Version 5.2 March 21, 2024]]></caption></toggle></para>
+    <para styleclass="Normal" style="text-indent:-18px; margin-left:18px;"><table styleclass="Default" rowcount="1" colcount="1">
+      <tr style="vertical-align:top">
+        <td>
+          <para styleclass="Heading3_atocs_" style="text-indent:-18px; margin-left:18px;"><image src="hmtoggle_plus0.gif" scale="100.00%" styleclass="Heading3_atocs_" figurelistinclude="0"></image><tab /><toggle type="dropdown" print-expanded="true" help-expanded="true" defaultstyle="true" translate="true" src-collapsed="hmtoggle_plus0.gif" src-expanded="hmtoggle_plus1.gif" styleclass="Heading3_atocs_"><caption translate="true"><![CDATA[Enhancements]]></caption></toggle></para>
+          <para styleclass="Heading3_atocs_" style="text-indent:-18px; margin-left:18px;"><table styleclass="Default" rowcount="1" colcount="1">
+            <tr style="vertical-align:top">
+              <td>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for FMP4 package MODFLOW-OWHM version 2.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for CFP2 package MODFLOW-OWHM version 2.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for Buoyancy package for MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for Viscosity package for MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for Transient Hydraulic Conductivity package for MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for Transient Storage package for MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for SUTRA version 4.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for SFR cross sections in MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">ModelMuse can now import FHB boundaries from Shapefiles.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">The Show and Hide Objects dialog &#160;box now has &quot;Calibration Data Sets&quot; as a new category.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">ModelMuse can now export FHB data to shapefiles in the &quot;File|Export|Shapefile|Objects to Shapefile&quot; dialog box.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">The RunModel.bat file used by PEST now has code to show the elapsed time for generating the input files, running the model, and extracting the model results.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">In the PEST Observations results graph, clicking on an observation point will cause that point to be labeled on the graph and in the ModelMuse main window.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">The Export Objects to Shapefile dialog box now has an button to toggle all the times to export.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">The Export Objects to Shapefile dialog box now allows data to be exported to a CSV file instead of to an XBase file.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">When converting the SFR package in MODFLOW-2005 to the SFR package in MODFLOW 6, the formula for the top of the stream bed now ensures that the top of the stream bed minus the bed thickness is always higher than the bottom of the cell.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">When converting the SFR package in MODFLOW-2005 to the SFR package in MODFLOW 6, the upstream fraction for any diversion segments is set to zero.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">ModelMuse can now import Vertex values based on vertex locations in the Object Properties dialog box.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">When exporting contours to Shapefiles, ModelMuse can now export contours for multiple layers.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for exporting the outline of the current layer to a Shapefile.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added dynamic time series for MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">When importing Shapefiles, ModelMuse now checks to see if the grid or mesh overlaps with the shapes in the shapeFile.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Improved conversion of SFR package from MODFLOW-2005 to MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">It is now possible to import multiple Surfer grid files simultaneously.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Improved conversion of SFR package when switching to MODFLOW 6 from earlier versions of MODFLOW.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for SFR cross sections in MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">The &quot;Edit Feature Formula&quot; dialog box has been modified to allow the user to specify a different formula for each edited object.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">The Import Points dialog box has been changed to allow more more flexibility in import model features.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">The Mesh|Specify Mesh dialog box has been modified to allow the user to specify a 3D mesh.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">The Import Points dialog box has been changed to allow allow importing GWT concentrations and UZF boundaries for MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">ModelMuse can now import data from binary output files created by the MAW, MWT, SFR, SFT, UZF, and UZT packages in HODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">In MODFLOW 6 models, the BICGSTAB solver option will be used automatically for models that use the XT3D option in the NPF package or DISV models in which the GNC package is used and the EXPLICIT option is not used in the GNC package.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for exporting CSV budget files in MODFLOW 6 models.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for the wel-reduction observation type in the MODFLOW 6 Observation Utility.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">When the MVR package receiver is a group of UZF cells. there is now an option to distribute the MVR flow equally to the UZF receiver cells.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for BUDGETCSV, FLOWCORRECTION, and MAW_FLOW_REDUCE_CSV options in MAW.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added an error message for calibration observations with observation times equal to the start of the simulation.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">A &quot;Sum&quot; function has been added to the functions supported in the Formula Editor.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added a check that the MAW radius is the cell effective radius.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">When editing layer group names, potentially duplicate layer group names are handled without displaying a warning message.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Time-varying cross sections are now supported in &#160;the MODFLOW 6 SFR package.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for discharge scaling in the DRN package.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added support for defining observations of input.</text></para>
+              </td>
+            </tr>
+          </table></para>
+          <para styleclass="Heading3_atocs_" style="text-indent:-18px; margin-left:18px;"><image src="hmtoggle_plus0.gif" scale="100.00%" styleclass="Heading3_atocs_" figurelistinclude="0"></image><tab /><toggle type="dropdown" print-expanded="true" help-expanded="false" defaultstyle="true" translate="true" src-collapsed="hmtoggle_plus0.gif" src-expanded="hmtoggle_plus1.gif" styleclass="Heading3_atocs_"><caption translate="true"><![CDATA[Changes]]></caption></toggle></para>
+          <para styleclass="Heading3_atocs_" style="text-indent:-18px; margin-left:18px;"><table styleclass="Default" rowcount="1" colcount="1">
+            <tr style="vertical-align:top">
+              <td>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">When any dialog box is minimized, the main form of ModelMuse is minimized too.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">ModelMuse does not draw a image of an SFR 8-point cross section in the Object Properties dialog box unless the 8-point cross section is in use.Bug fix: Fixed export of PEST input files on computers in which a character other than the period is used as a decimal separator.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">If a MODFLOW 6 lake only has vertical connections, it is treated as being above the bottommost layer intersect by the object defining the lake. This means a lake can be above layer 1. A lake that has horizontal connections is treated as being in all the layers intersected by the object.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">SFR in MODFLOW 6 reaches are now allowed outside of the grid.</text></para>
+              </td>
+            </tr>
+          </table></para>
+          <para styleclass="Heading3_atocs_" style="text-indent:-18px; margin-left:18px;"><image src="hmtoggle_plus0.gif" scale="100.00%" styleclass="Heading3_atocs_" figurelistinclude="0"></image><tab /><toggle type="dropdown" print-expanded="true" help-expanded="false" defaultstyle="true" translate="true" src-collapsed="hmtoggle_plus0.gif" src-expanded="hmtoggle_plus1.gif" styleclass="Heading3_atocs_"><caption translate="true"><![CDATA[Bug fixes]]></caption></toggle></para>
+          <para styleclass="Heading3_atocs_" style="text-indent:-18px; margin-left:18px;"><table styleclass="Default" rowcount="1" colcount="1">
+            <tr style="vertical-align:top">
+              <td>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bugs in Observation extractor programs that could sometimes prevent them from being able to read the output files correctly.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug that prevent PEST from working correctly with GWT in MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug that would cause ModelMuse to fail in creating the SFR input files for MODFLOW 6 models with diversions in the SFR packages.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug that would cause the batch file for running a model to be created incorrectly in some cases.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Added a test for ensuring that MODFLOW 6 did not use the Save Saturation option when used with MT3D-USGS.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug that would cause the ETS package to be imported incorrectly if the evaporation segments were reused.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed importing UZF data from a Shapefile.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug that could cause an access violation when activating MODFLOW-LGR.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Partially fixed bug in creating PLPROC scripts for modifying data sets with large number of layers.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Completed fixing bug in creating PLPROC scripts for modifying data sets with large number of layers.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug that could cause a stack overflow when displaying data.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">ModelMuse does not include parameters in the model if they are not needed.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug that would prevent elevations from being updated if the front and side views were hidden.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug that could cause head observations in the Head Observation package to be skipped if their times were at the beginning or end of the simulation.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug in exporting contours to Shapefiles that would cause an assertion failure.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed importing of MODFLOW-NWT models in which the UZF variable NUZTOP is set to 4.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed exporting grid data for boundary conditions to Shapefiles.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">When pasting objects from the clipboard into ModelMuse, the unique identifier of HOB observations and SUTRA state calibration observations are now reassigned to prevent potential conflicts with existing calibration observations.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug exporting SRF in MODFLOW LGR models if unsaturated flow was enabled in SFR.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">If some observations have duplicate GUIDs, ModelMuse reassigns the GUID.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug that could cause an exception when drawing the horizontal ruler in SUTRA profile models.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug in assigning UZF as a MVR source in MODFLOW 6.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug in which the SUTRA data sets for regions were not properly renamed when opening old ModelMuse files containing data sets for regions.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed pasting of GWT concentrations in the Object Properties dialog box.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed pasting data into the Observation Comparisons dialog box.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug that could cause an access violation when opening the MODFLOW Packages and Programs dialog box.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed loss of data when editing multiple MNW2 wells simultaneously.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bugs in assigning data for MODFLOW 6 IST package.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">ModelMuse no longer generates an error message for the MVR package if the MVR input in an object does not include all stress periods.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug that caused an access violation when editing evapotranspiration bounddaries in MODFLOW 6 models in which the groundwater transport process was active.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug in defining SUTRA step TIME CYCLE time schedules whent the initial time for the time schedule is not zero.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed exporting SUTRA input files when BCTIME has been modified.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed editing of ETS information in the Object Properties dialog box.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed editing of MAX information in the Object Properties dialog box.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed export of UPSTREAM_FRACTION in MODFLOW 6 SFR packages for diversion reaches.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed importing MODFLOW-2005 and MODFLOW-NWT models in which the number of segments in the ETS package was set to 1.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug in Mf2005ObsExtractor that caused simulated from the HOB package to be incorrectly read as zero.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Switching from a MODFLOW-NWT to a MODFLOW-OWHM model no longer results in the NWT and UPW packages being deactivated.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug that could cause an assertion failure when exporting the MVR package input file.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed export of shapefiles of contours for MODFLOW DISV models in which the active area varies among layers.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug in importing Shapefiles that contain null shapes.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug that could cause an error when assigning data with objects that have a large number of cells.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug that would cause an error when attempting to read an empty .Values file from PEST.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed drawing contours on the side view for DISV meshes.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed export of flow observations in the CHD, DRN, &#160;GHB, and RIV, packages in MODFLOW 6 models.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed export of to-mvr observation types for the for WEL, DRN, RIV, and GHB packages.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug in editing the format of text in the rulers that could cause a bug report to be issued if the text for the sample number was not a number.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed error message issued &#160;when all downstream MODFLOW 6 SFR segments are inactive.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed a bug that could cause some cells to not be displayed correctly on the front view of DISV models.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Canceling the Time Series dialog box no longer causes an access violation.</text></para>
+                <para styleclass="Normal"><text styleclass="Normal" translate="true">Fixed bug in exporting Dispersion package in MODFLOW 6.</text></para>
+              </td>
+            </tr>
+          </table></para>
+        </td>
+      </tr>
+    </table></para>
+  </body>
+</topic>

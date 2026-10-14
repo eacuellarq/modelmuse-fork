@@ -1,0 +1,178 @@
+inherited frameScreenObjectStr: TframeScreenObjectStr
+  Height = 355
+  ExplicitHeight = 355
+  inherited splitHorizontal: TSplitter
+    Top = 121
+    ExplicitTop = 121
+  end
+  inherited pnlBottom: TPanel
+    Top = 274
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitTop = 274
+    inherited lblNumTimes: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited lblConductanceInterpretation: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited lblTimeSeriesInterpolation: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited seNumberOfTimes: TJvSpinEdit
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited comboTimeSeriesInterpolation: TComboBox
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited comboFormulaInterp: TComboBox
+      Left = 206
+      Top = 45
+      StyleElements = [seFont, seClient, seBorder]
+      OnChange = comboFormulaInterpChange
+      ExplicitLeft = 206
+      ExplicitTop = 45
+    end
+  end
+  inherited pnlTop: TPanel
+    Height = 121
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitHeight = 121
+    inherited pnlCaption: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    inherited clbParameters: TJvxCheckListBox
+      Top = 66
+      Height = 54
+      AllowGrayed = False
+      CheckKind = ckRadioButtons
+      TabOrder = 2
+      OnClick = clbParametersClick
+      ExplicitTop = 66
+      ExplicitHeight = 54
+    end
+    object pnlNumber: TPanel
+      Left = 1
+      Top = 25
+      Width = 539
+      Height = 41
+      Align = alTop
+      TabOrder = 1
+      ExplicitWidth = 318
+      object lblSegmentNumber: TLabel
+        Left = 134
+        Top = 17
+        Width = 122
+        Height = 15
+        Caption = 'Segment number (Seg)'
+      end
+      object seSegmentNumber: TJvSpinEdit
+        Left = 7
+        Top = 14
+        Width = 121
+        Height = 23
+        MaxValue = 2147483647.000000000000000000
+        MinValue = 1.000000000000000000
+        Value = 1.000000000000000000
+        TabOrder = 0
+        OnChange = seSegmentNumberChange
+      end
+    end
+  end
+  inherited pnlGrid: TPanel
+    Top = 124
+    Height = 150
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitTop = 124
+    ExplicitHeight = 150
+    inherited pnlEditGrid: TPanel
+      Height = 56
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitHeight = 56
+      inherited lblFormula: TLabel
+        StyleElements = [seFont, seClient, seBorder]
+      end
+      inherited rdeFormula: TRbwDataEntry
+        StyleElements = [seFont, seClient, seBorder]
+      end
+    end
+    inherited rdgModflowBoundary: TRbwDataGrid4
+      Top = 57
+      Height = 92
+      Columns = <
+        item
+          AutoAdjustRowHeights = False
+          AutoAdjustCaptionRowHeights = False
+          ButtonCaption = 'F()'
+          ButtonFont.Charset = DEFAULT_CHARSET
+          ButtonFont.Color = clWindowText
+          ButtonFont.Height = -11
+          ButtonFont.Name = 'Tahoma'
+          ButtonFont.Style = []
+          ButtonUsed = False
+          ButtonWidth = 35
+          CheckMax = False
+          CheckMin = False
+          ComboUsed = True
+          Format = rcf4String
+          LimitToList = False
+          MaxLength = 0
+          ParentButtonFont = False
+          WordWrapCaptions = True
+          WordWrapCells = False
+          CaseSensitivePicklist = False
+          CheckStyle = csCheck
+          AutoAdjustColWidths = True
+        end
+        item
+          AutoAdjustRowHeights = True
+          AutoAdjustCaptionRowHeights = False
+          ButtonCaption = 'F()'
+          ButtonFont.Charset = DEFAULT_CHARSET
+          ButtonFont.Color = clWindowText
+          ButtonFont.Height = -11
+          ButtonFont.Name = 'Tahoma'
+          ButtonFont.Style = []
+          ButtonUsed = False
+          ButtonWidth = 35
+          CheckMax = False
+          CheckMin = False
+          ComboUsed = True
+          Format = rcf4Real
+          LimitToList = False
+          MaxLength = 0
+          ParentButtonFont = False
+          WordWrapCaptions = True
+          WordWrapCells = False
+          CaseSensitivePicklist = False
+          CheckStyle = csCheck
+          AutoAdjustColWidths = True
+        end
+        item
+          AutoAdjustRowHeights = True
+          AutoAdjustCaptionRowHeights = False
+          ButtonCaption = 'F()'
+          ButtonFont.Charset = DEFAULT_CHARSET
+          ButtonFont.Color = clWindowText
+          ButtonFont.Height = -11
+          ButtonFont.Name = 'Tahoma'
+          ButtonFont.Style = []
+          ButtonUsed = False
+          ButtonWidth = 35
+          CheckMax = False
+          CheckMin = False
+          ComboUsed = False
+          Format = rcf4String
+          LimitToList = False
+          MaxLength = 0
+          ParentButtonFont = False
+          WordWrapCaptions = True
+          WordWrapCells = False
+          CaseSensitivePicklist = False
+          CheckStyle = csCheck
+          AutoAdjustColWidths = True
+        end>
+      ExplicitTop = 57
+      ExplicitHeight = 92
+    end
+  end
+end

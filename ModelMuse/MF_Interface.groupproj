@@ -1,0 +1,144 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{698574DF-FAF0-43CA-89B0-7E315ECD74A6}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ModelMuse.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\ModelMonitor\ModelMonitor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\SWI_ObsExtractor\SwiObsExtractor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\EnhancedTemplateProcessor\EnhancedTemplateProcessor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Mf6ObsExtractor\Mf6ObsExtractor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Mf2005ObsExtractor\Mf2005ObsExtractor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\SutraObsExtractor\SutraObsExtractor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\MF6InputReader\Mf6InputReader.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\GetValuesFromArrayFiles\GetValuesFromArrayFiles.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Convert_mmZLib\Convert_mmZlib.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ModelMuse">
+        <MSBuild Projects="ModelMuse.dproj"/>
+    </Target>
+    <Target Name="ModelMuse:Clean">
+        <MSBuild Projects="ModelMuse.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ModelMuse:Make">
+        <MSBuild Projects="ModelMuse.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ModelMonitor">
+        <MSBuild Projects="..\ModelMonitor\ModelMonitor.dproj"/>
+    </Target>
+    <Target Name="ModelMonitor:Clean">
+        <MSBuild Projects="..\ModelMonitor\ModelMonitor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ModelMonitor:Make">
+        <MSBuild Projects="..\ModelMonitor\ModelMonitor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SwiObsExtractor">
+        <MSBuild Projects="..\SWI_ObsExtractor\SwiObsExtractor.dproj"/>
+    </Target>
+    <Target Name="SwiObsExtractor:Clean">
+        <MSBuild Projects="..\SWI_ObsExtractor\SwiObsExtractor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SwiObsExtractor:Make">
+        <MSBuild Projects="..\SWI_ObsExtractor\SwiObsExtractor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="EnhancedTemplateProcessor">
+        <MSBuild Projects="..\EnhancedTemplateProcessor\EnhancedTemplateProcessor.dproj"/>
+    </Target>
+    <Target Name="EnhancedTemplateProcessor:Clean">
+        <MSBuild Projects="..\EnhancedTemplateProcessor\EnhancedTemplateProcessor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EnhancedTemplateProcessor:Make">
+        <MSBuild Projects="..\EnhancedTemplateProcessor\EnhancedTemplateProcessor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Mf6ObsExtractor">
+        <MSBuild Projects="..\Mf6ObsExtractor\Mf6ObsExtractor.dproj"/>
+    </Target>
+    <Target Name="Mf6ObsExtractor:Clean">
+        <MSBuild Projects="..\Mf6ObsExtractor\Mf6ObsExtractor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Mf6ObsExtractor:Make">
+        <MSBuild Projects="..\Mf6ObsExtractor\Mf6ObsExtractor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Mf2005ObsExtractor">
+        <MSBuild Projects="..\Mf2005ObsExtractor\Mf2005ObsExtractor.dproj"/>
+    </Target>
+    <Target Name="Mf2005ObsExtractor:Clean">
+        <MSBuild Projects="..\Mf2005ObsExtractor\Mf2005ObsExtractor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Mf2005ObsExtractor:Make">
+        <MSBuild Projects="..\Mf2005ObsExtractor\Mf2005ObsExtractor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SutraObsExtractor">
+        <MSBuild Projects="..\SutraObsExtractor\SutraObsExtractor.dproj"/>
+    </Target>
+    <Target Name="SutraObsExtractor:Clean">
+        <MSBuild Projects="..\SutraObsExtractor\SutraObsExtractor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SutraObsExtractor:Make">
+        <MSBuild Projects="..\SutraObsExtractor\SutraObsExtractor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Mf6InputReader">
+        <MSBuild Projects="..\MF6InputReader\Mf6InputReader.dproj"/>
+    </Target>
+    <Target Name="Mf6InputReader:Clean">
+        <MSBuild Projects="..\MF6InputReader\Mf6InputReader.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Mf6InputReader:Make">
+        <MSBuild Projects="..\MF6InputReader\Mf6InputReader.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GetValuesFromArrayFiles">
+        <MSBuild Projects="..\GetValuesFromArrayFiles\GetValuesFromArrayFiles.dproj"/>
+    </Target>
+    <Target Name="GetValuesFromArrayFiles:Clean">
+        <MSBuild Projects="..\GetValuesFromArrayFiles\GetValuesFromArrayFiles.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GetValuesFromArrayFiles:Make">
+        <MSBuild Projects="..\GetValuesFromArrayFiles\GetValuesFromArrayFiles.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Convert_mmZlib">
+        <MSBuild Projects="..\Convert_mmZLib\Convert_mmZlib.dproj"/>
+    </Target>
+    <Target Name="Convert_mmZlib:Clean">
+        <MSBuild Projects="..\Convert_mmZLib\Convert_mmZlib.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Convert_mmZlib:Make">
+        <MSBuild Projects="..\Convert_mmZLib\Convert_mmZlib.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ModelMuse;ModelMonitor;SwiObsExtractor;EnhancedTemplateProcessor;Mf6ObsExtractor;Mf2005ObsExtractor;SutraObsExtractor;Mf6InputReader;GetValuesFromArrayFiles;Convert_mmZlib"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ModelMuse:Clean;ModelMonitor:Clean;SwiObsExtractor:Clean;EnhancedTemplateProcessor:Clean;Mf6ObsExtractor:Clean;Mf2005ObsExtractor:Clean;SutraObsExtractor:Clean;Mf6InputReader:Clean;GetValuesFromArrayFiles:Clean;Convert_mmZlib:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ModelMuse:Make;ModelMonitor:Make;SwiObsExtractor:Make;EnhancedTemplateProcessor:Make;Mf6ObsExtractor:Make;Mf2005ObsExtractor:Make;SutraObsExtractor:Make;Mf6InputReader:Make;GetValuesFromArrayFiles:Make;Convert_mmZlib:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

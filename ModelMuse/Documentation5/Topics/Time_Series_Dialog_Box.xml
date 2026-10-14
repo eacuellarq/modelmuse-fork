@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" modified="2023-09-06T12:11:17.036-04:00" lasteditedby="rbwinst" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title translate="true">Time Series Dialog Box</title>
+  <body>
+    <header>
+      <para styleclass="Heading1"><text styleclass="Heading1" translate="true">Time Series Dialog Box</text></para>
+    </header>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The </text><text styleclass="Strong" translate="true">Time Series</text><text styleclass="Normal" translate="true"> dialog box is used to specify time series for MODFLOW 6 models. The Time Series dialog box is displayed by selecting &quot;Model|Edit Time Series.&quot;</text></para>
+    <para styleclass="Normal"><text styleclass="Normal" translate="true">The Time Series dialog box has a tree control on the left. Initially the right side of the dialog box is empty. To define a times series, the modeler first clicks the &quot;Add Group&quot; button. Each time series group is used to specify a series of times and as many associated time series as desired. The modeler can change the number of time series by increasing the value displayed in the &quot;Number of time series&quot; edit box. The user can also delete a time series by selecting a column in the table for a time series and clicking the &quot;Delete time series&quot; button. The user can change the number of times by changing the value displayed in the &quot;Number of times&quot; edit box. The user can also insert or delete times by selecting a row and clicking the &quot;Insert time&quot; or &quot;Delete time&quot; buttons. </text></para>
+    <para styleclass="Normal"><snippet src="Time-Series-Properties" inline="false"/></para>
+  </body>
+</topic>
