@@ -18,6 +18,25 @@ self-contained change with its rationale, so each fix can be reviewed (and upstr
 | MF6 import: fix MVR imports | MODFLOW 6 import | `TDis` assigned too late in `ImportSfr`; SFR/LAK single-ID mover sources rejected by an assertion | SFR+MVR (or SFT) imports crashed; SFR→LAK movers never imported (also in 5.3.1) |
 | NWT/MF2005 export: no 1.0 format on a missing exe | MODFLOW-2005/NWT export | Missing/mistyped MODFLOW-NWT location silently selected the 2014 input format | Exported files rejected by current MODFLOW-NWT (`ERROR CONVERTING "TABFILES"`) |
 
+## New: command-line import
+
+```
+ModelMuse.exe -import6   <mfsim.nam>  <output.gpt|.gpb|.xml|.mmZLib> [-transport <transport mfsim.nam>]... [-georef <usgs.model.reference>]
+ModelMuse.exe -importnwt <model.nam>  <output.gpt|.gpb|.xml|.mmZLib> [-origin <x> <y> <angle_deg>] [-intersected]
+```
+
+Imports a MODFLOW 6 or MODFLOW-2005/NWT model without any dialog box, saves it and exits. It runs the
+same code as *File > Import* (the dialogs are created hidden), so the result is the same model.
+It writes `<output>.importlog.txt`, whose first line is `STATUS: OK` or `STATUS: ERROR`, followed by the
+importer's warnings. The exit code is 0 (ok), 1 (bad arguments or missing file) or 2 (import or save
+failed). Together with the existing `-e` switch (export the model files) this makes the whole
+model → ModelMuse → MODFLOW loop scriptable, e.g. from Python/flopy:
+
+```
+ModelMuse.exe -import6 mfsim.nam model.gpt
+ModelMuse.exe model.gpt -e -c
+```
+
 Build-only changes (no behavior change): dependency search path, optional madExcept, VirtualTreeView 8
 `VirtualTrees.Types` imports, default platform Win64.
 

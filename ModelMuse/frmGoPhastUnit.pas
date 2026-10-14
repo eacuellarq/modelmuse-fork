@@ -824,6 +824,11 @@ type
     FNeedFirstRedraw: Boolean;
     FCreatingModel: Boolean;
     FNoIniFile: Boolean;
+    // Command-line MODFLOW-2005/NWT import settings (see ImportFromCommandLine).
+    FCliNwtActive: Boolean;
+    FCliNwtNameFile: string;
+    FCliNwtX, FCliNwtY, FCliNwtAngle: string;
+    FCliNwtIntersected: Boolean;
     FRunMt3dModel: TCustomModel;
     FInvalidatingAllViews: Boolean;
     FRunPestForm: TfrmRunPest;
@@ -861,6 +866,8 @@ type
     procedure ClearFileSaveDialogBoxNames;
     procedure HandleCommandLineParameters(FileName: string);
     procedure ExportFromCommandLine(FileName: string);
+    function ImportFromCommandLine: Boolean;
+    procedure RunCommandLineNwtImport;
     procedure ImportPvalFile(PValFile: string);
     procedure ImportGlobalVariablesFile(GloVarFile: string);
     procedure ExportSutra(ShouldRunSutra: Boolean; const FileName: string);
@@ -2928,7 +2935,14 @@ begin
 
     if Sender = miModflow2005Model then
     begin
-      ShowAForm(TfrmImportModflow);
+      if FCliNwtActive then
+      begin
+        RunCommandLineNwtImport;
+      end
+      else
+      begin
+        ShowAForm(TfrmImportModflow);
+      end;
       if ModelSelection = msUndefined then
       begin
         Application.Terminate;
@@ -3832,7 +3846,13 @@ begin
 //    frmScreenObjectProperties := TfrmScreenObjectProperties.Create(Application);
 
     OpenedFile := False;
-    if ParamCount > 0 then
+    if ImportFromCommandLine then
+    begin
+      // -import6 / -importnwt: import, save and quit without the start-up dialog.
+      OpenedFile := True;
+      Application.Terminate;
+    end
+    else if ParamCount > 0 then
     begin
       try
       FileName := ParamStr(1);
@@ -7037,6 +7057,255 @@ begin
       end
   else
     Assert(False);
+  end;
+end;
+
+// Command-line import (fork addition). Usage:
+//   ModelMuse.exe -import6 <mfsim.nam> <output.gpt|.gpb|.xml|.mmZLib>
+//                 [-transport <mfsim.nam of a transport simulation>]... [-georef <usgs.model.reference>]
+//   ModelMuse.exe -importnwt <model.nam> <output.gpt|.gpb|.xml|.mmZLib>
+//                 [-origin <x> <y> <angle in degrees>] [-intersected]
+// Runs the same import code as the import dialog boxes (without showing them),
+// saves the model, writes <output>.importlog.txt (first line STATUS: OK or
+// STATUS: ERROR, followed by the importer's warnings) and exits with
+// ExitCode 0 (ok), 1 (bad arguments) or 2 (import or save failed).
+// Returns False when the command line does not request an import.
+function TfrmGoPhast.ImportFromCommandLine: Boolean;
+var
+  Mode: string;
+  SourceFile: string;
+  OutputFile: string;
+  ArgIndex: Integer;
+  TransportFiles: TStringList;
+  GeoRefFile: string;
+  XOrigin, YOrigin, GridAngle: string;
+  Intersected: Boolean;
+  Log: TStringList;
+  Messages: TStringList;
+  Ok: Boolean;
+  Extension: string;
+  ImportMf6: TfrmImportModflow6;
+  procedure Fail(const Msg: string; Code: Integer);
+  begin
+    Log.Insert(0, 'STATUS: ERROR');
+    Log.Add(Msg);
+    ExitCode := Code;
+    Ok := False;
+  end;
+begin
+  result := False;
+  if ParamCount < 1 then
+  begin
+    Exit;
+  end;
+  Mode := LowerCase(ParamStr(1));
+  if (Mode <> '-import6') and (Mode <> '-importnwt') then
+  begin
+    Exit;
+  end;
+  result := True;
+  FNoIniFile := True;
+  Ok := True;
+  ExitCode := 0;
+  Log := TStringList.Create;
+  Messages := TStringList.Create;
+  TransportFiles := TStringList.Create;
+  try
+    if ParamCount < 3 then
+    begin
+      ExitCode := 1;
+      Exit;
+    end;
+    SourceFile := ExpandFileName(ParamStr(2));
+    OutputFile := ExpandFileName(ParamStr(3));
+    GeoRefFile := '';
+    XOrigin := '0';
+    YOrigin := '0';
+    GridAngle := '0';
+    Intersected := False;
+    ArgIndex := 4;
+    while ArgIndex <= ParamCount do
+    begin
+      if SameText(ParamStr(ArgIndex), '-transport') and (ArgIndex < ParamCount) then
+      begin
+        TransportFiles.Add(ExpandFileName(ParamStr(ArgIndex+1)));
+        Inc(ArgIndex, 2);
+      end
+      else if SameText(ParamStr(ArgIndex), '-georef') and (ArgIndex < ParamCount) then
+      begin
+        GeoRefFile := ExpandFileName(ParamStr(ArgIndex+1));
+        Inc(ArgIndex, 2);
+      end
+      else if SameText(ParamStr(ArgIndex), '-origin') and (ArgIndex + 3 <= ParamCount) then
+      begin
+        XOrigin := ParamStr(ArgIndex+1);
+        YOrigin := ParamStr(ArgIndex+2);
+        GridAngle := ParamStr(ArgIndex+3);
+        Inc(ArgIndex, 4);
+      end
+      else if SameText(ParamStr(ArgIndex), '-intersected') then
+      begin
+        Intersected := True;
+        Inc(ArgIndex);
+      end
+      else
+      begin
+        Fail('Unrecognized command-line argument: ' + ParamStr(ArgIndex), 1);
+        Exit;
+      end;
+    end;
+    if not TFile.Exists(SourceFile) then
+    begin
+      Fail('File not found: ' + SourceFile, 1);
+      Exit;
+    end;
+    Extension := LowerCase(ExtractFileExt(OutputFile));
+    if Extension = '.gpt' then
+    begin
+      FileFormat := ffAscii;
+    end
+    else if Extension = '.gpb' then
+    begin
+      FileFormat := ffBinary;
+    end
+    else if Extension = '.xml' then
+    begin
+      FileFormat := ffXML;
+    end
+    else if Extension = '.mmzlib' then
+    begin
+      FileFormat := ffZLib;
+    end
+    else
+    begin
+      Fail('The output file must end in .gpt, .gpb, .xml or .mmZLib: ' + OutputFile, 1);
+      Exit;
+    end;
+
+    try
+      if Mode = '-import6' then
+      begin
+        ImportMf6 := TfrmImportModflow6.Create(nil);
+        try
+          ImportMf6.edFlowSimFile.FileName := SourceFile;
+          ImportMf6.fedGeoRef.FileName := GeoRefFile;
+          if TransportFiles.Count > 0 then
+          begin
+            ImportMf6.frameTransportNameFiles.seNumber.AsInteger := TransportFiles.Count;
+            ImportMf6.frameTransportNameFiles.Grid.RowCount := TransportFiles.Count + 1;
+            for var FileIndex := 0 to TransportFiles.Count - 1 do
+            begin
+              ImportMf6.frameTransportNameFiles.Grid.Cells[0, FileIndex+1] :=
+                TransportFiles[FileIndex];
+            end;
+          end;
+          ImportMf6.btnOKClick(nil);
+        finally
+          ImportMf6.Free;
+        end;
+      end
+      else
+      begin
+        // Same path as File|New|Import MODFLOW-2005 or -NWT model: the new-model
+        // set-up runs first, then the (hidden) import dialog.
+        FCliNwtNameFile := SourceFile;
+        FCliNwtX := XOrigin;
+        FCliNwtY := YOrigin;
+        FCliNwtAngle := GridAngle;
+        FCliNwtIntersected := Intersected;
+        FCliNwtActive := True;
+        try
+          acFileNewModflowModelExecute(miModflow2005Model);
+        finally
+          FCliNwtActive := False;
+        end;
+        if ModelSelection = msUndefined then
+        begin
+          Fail('The MODFLOW-2005/NWT model could not be imported.', 2);
+          Exit;
+        end;
+      end;
+    except on E: Exception do
+      begin
+        Fail('Import failed: ' + E.Message, 2);
+        Exit;
+      end;
+    end;
+
+    if frmImportWarnings <> nil then
+    begin
+      Messages.AddStrings(frmImportWarnings.memoWarnings.Lines);
+    end;
+    frmErrorsAndWarnings.GetErrorsAndWarnings(Messages);
+    for var LineIndex := 0 to Messages.Count - 1 do
+    begin
+      if (Trim(Messages[LineIndex]) = 'ERROR')
+        or (Pos('Access violation', Messages[LineIndex]) > 0) then
+      begin
+        Ok := False;
+      end;
+    end;
+    Log.AddStrings(Messages);
+
+    try
+      sdSaveDialog.FileName := OutputFile;
+      PhastModel.ModelFileName := OutputFile;
+      SaveAFile(OutputFile);
+    except on E: Exception do
+      begin
+        Fail('Saving ' + OutputFile + ' failed: ' + E.Message, 2);
+        Exit;
+      end;
+    end;
+    if not TFile.Exists(OutputFile) then
+    begin
+      Fail('Output file was not written: ' + OutputFile, 2);
+      Exit;
+    end;
+    if Ok then
+    begin
+      Log.Insert(0, 'STATUS: OK');
+    end
+    else
+    begin
+      Log.Insert(0, 'STATUS: ERROR');
+      ExitCode := 2;
+    end;
+  finally
+    if (OutputFile <> '') then
+    begin
+      try
+        if (Log.Count = 0) or not Log[0].StartsWith('STATUS:') then
+        begin
+          Log.Insert(0, 'STATUS: ERROR');
+        end;
+        Log.SaveToFile(OutputFile + '.importlog.txt');
+      except
+      end;
+    end;
+    TransportFiles.Free;
+    Messages.Free;
+    Log.Free;
+  end;
+end;
+
+procedure TfrmGoPhast.RunCommandLineNwtImport;
+var
+  ImportMf2005: TfrmImportModflow;
+begin
+  ImportMf2005 := TfrmImportModflow.Create(nil);
+  try
+    ImportMf2005.fedNameFile.FileName := FCliNwtNameFile;
+    ImportMf2005.rdeX.Text := FCliNwtX;
+    ImportMf2005.rdeY.Text := FCliNwtY;
+    ImportMf2005.rdeGridAngle.Text := FCliNwtAngle;
+    if FCliNwtIntersected then
+    begin
+      ImportMf2005.rgMethod.ItemIndex := 1;
+    end;
+    ImportMf2005.btnOKClick(nil);
+  finally
+    ImportMf2005.Free;
   end;
 end;
 

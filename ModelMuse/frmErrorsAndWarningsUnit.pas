@@ -166,7 +166,6 @@ type
     //
     procedure CheckDeleteRootNode(Model: TBaseModel; var Node: PVirtualNode;
       RootList: TStringList; ModelMessageList: TModelMessageList);
-    procedure GetErrorsAndWarnings(ErrorsAndWarings: TStringList);
 
     // @name creates a new root node (PVirtualNode) and associates List
     // with it. @seealso(FErrorNode) @seealso(FWarningNode)
@@ -179,6 +178,7 @@ type
 //    class procedure SetFormLeft(const Value: Integer); static;
     { Private declarations }
   public
+    procedure GetErrorsAndWarnings(ErrorsAndWarings: TStringList);
     function HasMessages: boolean;
     { TODO -cRefactor : Consider replacing Model with an interface. }
     // @name is used to add a new error message to @classname.
