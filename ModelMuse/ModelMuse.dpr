@@ -24,11 +24,14 @@ program ModelMuse;
 
 uses
   FastMM4 in 'FastMM4.pas',
+  // madExcept (commercial, crash reports) is optional: define madExcept to use it.
+  {$IFDEF madExcept}
   madExcept,
   madLinkDisAsm,
   madListHardware,
   madListProcesses,
   madListModules,
+  {$ENDIF}
   TempFiles in 'TempFiles.pas',
   Forms,
   HTMLHelpViewer,
