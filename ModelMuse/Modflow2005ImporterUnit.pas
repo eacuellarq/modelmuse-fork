@@ -14763,13 +14763,21 @@ begin
   end;
   if FSfrPackage.Isfropt in [4, 5] then
   begin
-    if (Segment.ICalc in [1, 2]) and (StressPeriodIndex = 0) then
+    if ((Segment.ICalc in [1, 2]) and (StressPeriodIndex = 0))
+      or (Segment.ICalc <= 0) then
     begin
       DownstreamItem.StreamBedThickness := FortranFloatToStr(Segment.THICKM2);
       DownstreamItem.StreambedElevation := FortranFloatToStr(Segment.ELEVDN);
     end;
   end;
-  if FSfrPackage.Isfropt <= 1 then
+  // With ICALC = 0, MODFLOW-2005/NWT (gwf2sfr7 SGWF2SFR7RDSEG) read WIDTH and DEPTH
+  // in every stress period for every ISFROPT. DEPTH used to be imported only for
+  // ISFROPT = 0, so ISFROPT > 0 models got the default depth of 1.
+  if Segment.ICalc <= 0 then
+  begin
+    DownstreamItem.StreamDepth := FortranFloatToStr(Segment.DEPTH2);
+  end;
+  if (FSfrPackage.Isfropt <= 1) or (Segment.ICalc <= 0) then
   begin
     DownstreamItem.StreamWidth := FortranFloatToStr(Segment.WIDTH2);
   end
@@ -14802,13 +14810,21 @@ begin
   end;
   if FSfrPackage.Isfropt in [4, 5] then
   begin
-    if (Segment.ICalc in [1, 2]) and (StressPeriodIndex = 0) then
+    if ((Segment.ICalc in [1, 2]) and (StressPeriodIndex = 0))
+      or (Segment.ICalc <= 0) then
     begin
       UpstreamItem.StreamBedThickness := FortranFloatToStr(Segment.THICKM1);
       UpstreamItem.StreambedElevation := FortranFloatToStr(Segment.ELEVUP);
     end;
   end;
-  if FSfrPackage.Isfropt <= 1 then
+  // With ICALC = 0, MODFLOW-2005/NWT (gwf2sfr7 SGWF2SFR7RDSEG) read WIDTH and DEPTH
+  // in every stress period for every ISFROPT. DEPTH used to be imported only for
+  // ISFROPT = 0, so ISFROPT > 0 models got the default depth of 1.
+  if Segment.ICalc <= 0 then
+  begin
+    UpstreamItem.StreamDepth := FortranFloatToStr(Segment.DEPTH1);
+  end;
+  if (FSfrPackage.Isfropt <= 1) or (Segment.ICalc <= 0) then
   begin
     UpstreamItem.StreamWidth := FortranFloatToStr(Segment.WIDTH1);
   end
