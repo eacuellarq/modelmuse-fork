@@ -10419,6 +10419,9 @@ begin
   Locations := T3DSparseBooleanArray.Create(GetQuantum(Model.LayerCount),
     GetQuantum(Model.RowCount), GetQuantum(Model.ColumnCount));
   try
+    // TDis was declared but never assigned here, so every MF6 lake import
+    // failed with an access violation at TDis.StartTime / TDis.PeriodData.
+    TDis := FSimulation.Timing.TDis;
     FillSpcList(SpcList, Package, TransportModels, EnergyTransportModels, SpcMaps);
     TransportAuxNames.CaseSensitive := False;
     for var ModelIndex := 0 to TransportModels.Count - 1 do
@@ -10854,7 +10857,7 @@ begin
         end;
       end;
 
-      ALake.LktPackageItems.Capacity := LkeList.Count;
+      ALake.LkePackageItems.Capacity := LkeList.Count;
       for var TransportIndex := 0 to LkeList.Count - 1 do
       begin
         Lke := LkeList[TransportIndex];
