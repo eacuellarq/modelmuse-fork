@@ -40315,16 +40315,20 @@ var
   NwtDate: TDateTime;
   M2005Date: TDateTime;
 begin
-  result := nf1_0;
+  // The old (1.0) input format is used only when the configured executable
+  // exists and is known to be old. Previously a missing or mistyped program
+  // location silently selected the 1.0 format, which current MODFLOW-NWT
+  // (1.1+) and MODFLOW-2005 (1.12+) reject (e.g. SFR TABFILES on its own line).
+  result := nf1_1;
   if ModelSelection = msModflowNWT then
   begin
     if TFile.Exists(ProgramLocations.ModflowNwtLocation) then
     begin
 //      MfNwtDateVersion1_0_9 := EncodeDate(2014,6,23);
       NwtDate := Trunc(TFile.GetLastWriteTime(ProgramLocations.ModflowNwtLocation));
-      if NwtDate > MfNwtDateVersion1_0_9 then
+      if NwtDate <= MfNwtDateVersion1_0_9 then
       begin
-        result := nf1_1;
+        result := nf1_0;
       end;
     end;
   end
@@ -40334,12 +40338,16 @@ begin
     begin
 //      MfNwtDateVersion1_0_9 := EncodeDate(2014,6,23);
       M2005Date := Trunc(TFile.GetLastWriteTime(ProgramLocations.ModflowLocation));
-      if M2005Date >= Mf2005DateVersion1_12 then
+      if M2005Date < Mf2005DateVersion1_12 then
       begin
-        result := nf1_1;
+        result := nf1_0;
       end;
     end;
   end
+  else
+  begin
+    result := nf1_0;
+  end;
 
 end;
 
