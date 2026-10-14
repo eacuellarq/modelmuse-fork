@@ -13329,10 +13329,21 @@ begin
           SectionDictionary := TSectionDictionary.Create;
           SectionDictionaries.Add(SectionDictionary);
           SourceSectionDictionary.Add(AScreenObject, SectionDictionary);
-          Assert(AScreenObject.SectionCount = Length(Source.IDs));
-          for SectionIndex := 0 to AScreenObject.SectionCount - 1 do
+          // SFR reach lists and lake outlets are registered with a single ID
+          // for the whole (multi-section) object; only sources such as wells
+          // have one ID per section. The old assertion rejected every
+          // SFR- or LAK-sourced mover.
+          if Length(Source.IDs) = 1 then
           begin
-            SectionDictionary.Add(Source.IDs[SectionIndex], SectionIndex)
+            SectionDictionary.Add(Source.IDs[0], 0)
+          end
+          else
+          begin
+            Assert(AScreenObject.SectionCount = Length(Source.IDs));
+            for SectionIndex := 0 to AScreenObject.SectionCount - 1 do
+            begin
+              SectionDictionary.Add(Source.IDs[SectionIndex], SectionIndex)
+            end;
           end;
         end;
 
@@ -13467,7 +13478,9 @@ begin
         end;
 
         MvrMap := nil;
-        if (AScreenObject.SectionCount > 1) then
+        // A section map is only meaningful when each section is a separate
+        // source (one ID per section).
+        if (AScreenObject.SectionCount > 1) and (Length(Source.IDs) > 1) then
         begin
           MapNeeded := False;
           if ReceiverItem.ReceiverPackage = rpcSfr then
@@ -17669,6 +17682,11 @@ var
 begin
   SplitReachLists := nil;
   ObsNameIndex := 0;
+  // TDis used to be assigned only inside CreateScreenObject, but the mover /
+  // transport branch below (SetLength(SfrMvrLinkArray, TDis.PeriodData.Count))
+  // runs before any screen object is created: SFR + MVR (or SFT) imports
+  // crashed with an access violation on an uninitialized pointer.
+  TDis := FSimulation.Timing.TDis;
   if Assigned(OnUpdateStatusBar) then
   begin
     OnUpdateStatusBar(self, 'importing SFR package');
