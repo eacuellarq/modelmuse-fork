@@ -3621,6 +3621,7 @@ var
   ReachIndex: Integer;
   AReach: TSfr_Cell;
   BaseName: string;
+  ReachInput: Boolean;
 //  Used: Boolean;
 begin
   NSTRM := 0;
@@ -3730,7 +3731,13 @@ begin
     IRTFLG := 0;
   end;
 
-  if (ISFROPT > 0) and not NewFormat then
+  // MODFLOW-2005/NWT read ISFROPT and IRTFLG NUMTIM WEIGHT FLWTOL only when
+  // REACHINPUT is active (or NSTRM < 0). Kinematic routing therefore needs that
+  // data path even when ISFROPT = 0, otherwise IRTFLG is never read and the
+  // model silently runs without kinematic-wave routing.
+  ReachInput := (ISFROPT > 0) or SfrPackage.KinematicRouting;
+
+  if ReachInput and not NewFormat then
   begin
     NSTRM := -NSTRM;
   end;
@@ -3753,7 +3760,7 @@ begin
   WriteFloat(DLEAK);
   WriteInteger(ISTCB1);
   WriteInteger(ISTCB2);
-  if (NSTRM < 0)  or (NewFormat and (ISFROPT > 0)) then
+  if (NSTRM < 0)  or (NewFormat and ReachInput) then
   begin
     WriteInteger(ISFROPT);
   end;
@@ -3764,7 +3771,7 @@ begin
     WriteInteger(NSFRSETS);
   end;
 
-  if (ISFROPT > 0) or (NSTRM < 0) then
+  if ReachInput or (NSTRM < 0) then
   begin
 //    if not NewFormat then
 //    begin
@@ -3786,7 +3793,7 @@ begin
   end;
 
   WriteString(' # Data Set 1: NSTRM NSS NSFRPAR NPARSEG CONST DLEAK ISTCB1  ISTCB2');
-  if (NSTRM < 0)  or (NewFormat and (ISFROPT > 0)) then
+  if (NSTRM < 0)  or (NewFormat and ReachInput) then
   begin
     WriteString(' ISFROPT');
   end;
@@ -3794,7 +3801,7 @@ begin
   begin
     WriteString(' NSTRAIL ISUZN NSFRSETS');
   end;
-  if (ISFROPT > 0) or (NSTRM < 0) then
+  if ReachInput or (NSTRM < 0) then
   begin
 //    if not NewFormat then
 //    begin
@@ -3825,7 +3832,8 @@ begin
     WriteString('OPTIONS');
     NewLine;
 
-    if (ISFROPT > 0) then
+    // See WriteDataSet1c: kinematic routing needs REACHINPUT even with ISFROPT = 0.
+    if (ISFROPT > 0) or SfrPackage.KinematicRouting then
     begin
       WriteString('REACHINPUT ');
       NewLine;
@@ -3860,7 +3868,7 @@ begin
     if NewFormat
       and ((ISFROPT > 0) or SfrPackage.KinematicRouting) then
     begin
-      if (ISFROPT > 0) then
+      if (ISFROPT > 0) or SfrPackage.KinematicRouting then
       begin
         WriteString('REACHINPUT ');
       end;
