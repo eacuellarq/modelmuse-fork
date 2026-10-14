@@ -8,7 +8,7 @@ interface
 uses
   SysUtils, Types, Classes, Variants, Graphics, Controls, Forms,
   Dialogs, StdCtrls, ExtCtrls, Buttons, frmCustomSelectObjectsUnit,
-  VirtualTrees, ScreenObjectUnit, UndoItemsScreenObjects;
+  VirtualTrees, VirtualTrees.Types, ScreenObjectUnit, UndoItemsScreenObjects;
 
 type
   {@abstract(@name is used to search for @link(TScreenObject)s based on what

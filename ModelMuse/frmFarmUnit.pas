@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs, frmCustomGoPhastUnit, StdCtrls,
-  Buttons, ExtCtrls, frameScreenObjectUnit, frameFarmUnit, VirtualTrees,
+  Buttons, ExtCtrls, frameScreenObjectUnit, frameFarmUnit, VirtualTrees, VirtualTrees.Types,
   Mask, JvExMask, JvSpin, ModflowFmpFarmUnit, UndoItems,
   ModelMuseFarmFormInterfacesUnit, GoPhastTypes, System.Win.VCLCom,
   Vcl.ComCtrls;

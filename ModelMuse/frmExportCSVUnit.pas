@@ -4,7 +4,7 @@ interface
 
 uses System.UITypes,
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, frmCustomGoPhastUnit, VirtualTrees, DataSetUnit, StdCtrls, ExtCtrls,
+  Dialogs, frmCustomGoPhastUnit, VirtualTrees, VirtualTrees.Types, DataSetUnit, StdCtrls, ExtCtrls,
   Buttons, GoPhastTypes, Vcl.CheckLst, JvExCheckLst, JvCheckListBox;
 
 type

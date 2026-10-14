@@ -8,7 +8,7 @@ uses
   Dialogs, frmCustomGoPhastUnit, Grids, RbwDataGrid4, JvPageList,  ExtCtrls,
   JvExControls, ComCtrls, StdCtrls, Buttons, Mask, FastGEO, JvExMask, JvSpin,
   DataSetUnit, ScreenObjectUnit, ValueArrayStorageUnit, GoPhastTypes,
-  UndoItemsScreenObjects, JvLabel, VirtualTrees, SsButtonEd, RbwStringTreeCombo,
+  UndoItemsScreenObjects, JvLabel, VirtualTrees, VirtualTrees.Types, SsButtonEd, RbwStringTreeCombo,
   GrayTabs;
 
 type

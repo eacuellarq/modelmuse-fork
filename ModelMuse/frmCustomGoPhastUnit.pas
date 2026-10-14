@@ -15,7 +15,7 @@ uses
   System.UITypes, CommDlg, RbwDataGrid4,
   Windows, Forms, SysUtils, Types,
   Classes, Graphics, Controls, Dialogs, StdCtrls, Grids,
-  VirtualTrees, DataSetUnit, GLWin32Viewer, Generics.Collections,
+  VirtualTrees, VirtualTrees.Types, DataSetUnit, GLWin32Viewer, Generics.Collections,
   JvListComb, Vcl.ExtCtrls, Vcl.ComCtrls;
 
 type

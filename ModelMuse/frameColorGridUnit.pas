@@ -7,7 +7,7 @@ uses
   Dialogs, frameCustomColorUnit, ExtCtrls, ArgusDataEntry, Grids, RbwDataGrid4,
   frameDisplayLimitUnit, SsButtonEd, RbwStringTreeCombo, StdCtrls, ComCtrls,
   JvExComCtrls, JvUpDown, JvExControls, JvxSlider, Mask, JvExMask, JvSpin,
-  JvExStdCtrls, JvCombobox, DataSetUnit, VirtualTrees;
+  JvExStdCtrls, JvCombobox, DataSetUnit, VirtualTrees, VirtualTrees.Types;
 
 type
   TframeColorGrid = class(TframeCustomColor)

@@ -12,7 +12,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs, frmCustomGoPhastUnit, StdCtrls,
-  Buttons, ExtCtrls, VirtualTrees, ScreenObjectUnit
+  Buttons, ExtCtrls, VirtualTrees, VirtualTrees.Types, ScreenObjectUnit
 {$IFNDEF CommunityEdition}
   , VirtualTrees.BaseTree,
   VirtualTrees.BaseAncestorVCL, VirtualTrees.AncestorVCL

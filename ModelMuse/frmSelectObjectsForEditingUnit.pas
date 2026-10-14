@@ -4,7 +4,7 @@ interface
 
 uses System.Types,
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, frmCustomSelectObjectsUnit, VirtualTrees, StdCtrls, Buttons,
+  Dialogs, frmCustomSelectObjectsUnit, VirtualTrees, VirtualTrees.Types, StdCtrls, Buttons,
   ExtCtrls, ScreenObjectUnit, Menus, System.Actions, Vcl.ActnList;
 
 type

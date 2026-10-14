@@ -5,7 +5,7 @@ interface
 uses System.UITypes,
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, frmCustomGoPhastUnit, StdCtrls, ExtCtrls, Buttons, Grids,
-  Mask, JvExMask, JvSpin, VirtualTrees,
+  Mask, JvExMask, JvSpin, VirtualTrees, VirtualTrees.Types,
   DataSetUnit, RbwDataGrid4, Contnrs, DrawTextUnit,
   InPlaceEditUnit, Types, LegendUnit, GR32, RbwRuler, ExtDlgs, ComCtrls,
   DisplaySettingsUnit, JvExExtCtrls, JvNetscapeSplitter, Menus,

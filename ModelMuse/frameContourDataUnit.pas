@@ -7,7 +7,7 @@ uses System.UITypes,
   Dialogs, frameCustomColorUnit, ExtCtrls, ArgusDataEntry, Grids, RbwDataGrid4,
   frameDisplayLimitUnit, SsButtonEd, RbwStringTreeCombo, StdCtrls, ComCtrls,
   JvExComCtrls, JvUpDown, JvExControls, JvxSlider, Mask, JvExMask, JvSpin,
-  JvExStdCtrls, JvCheckBox, DataSetUnit, VirtualTrees, Vcl.CheckLst,
+  JvExStdCtrls, JvCheckBox, DataSetUnit, VirtualTrees, VirtualTrees.Types, Vcl.CheckLst,
   JvExCheckLst, JvCheckListBox;
 
 type

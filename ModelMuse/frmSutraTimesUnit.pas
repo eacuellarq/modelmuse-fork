@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics,
   Controls, Forms, Dialogs, frmCustomGoPhastUnit, ExtCtrls, Grids,
   RbwDataGrid4, ArgusDataEntry, JvPageList, JvExControls, StdCtrls,
-  VirtualTrees, frameGridUnit, Buttons, SutraTimeScheduleUnit, Mask,
+  VirtualTrees, VirtualTrees.Types, frameGridUnit, Buttons, SutraTimeScheduleUnit, Mask,
   JvExMask, JvSpin, UndoItems, ComCtrls, JvGroupHeader, GrayTabs;
 
 type

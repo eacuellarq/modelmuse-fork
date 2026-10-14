@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes,
-  Graphics, Controls, Forms, Dialogs, VirtualTrees, Buttons,
+  Graphics, Controls, Forms, Dialogs, VirtualTrees, VirtualTrees.Types, Buttons,
   StdCtrls, DataSetUnit, GoPhastTypes, JvExControls, JvColorBox,
   JvColorButton, Generics.Collections, CheckLst, JvExCheckLst,
   JvCheckListBox, ExtCtrls, Vcl.Mask, JvExMask, JvSpin;

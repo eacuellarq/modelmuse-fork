@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, frmCustomGoPhastUnit, StdCtrls, Buttons, ScreenObjectUnit,
-  DataSetUnit, VirtualTrees, FastGEO, GoPhastTypes, SsButtonEd,
+  DataSetUnit, VirtualTrees, VirtualTrees.Types, FastGEO, GoPhastTypes, SsButtonEd,
   RbwStringTreeCombo, Grids, RbwDataGrid4, ExtCtrls,
   RbwRollupPanel, Vcl.Mask, ZoomBox2, GR32, GR32_Layers;
 

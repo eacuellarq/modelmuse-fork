@@ -7,7 +7,7 @@ uses System.UITypes,
   Dialogs, frmCustomGoPhastUnit, StdCtrls, Buttons, JvToolEdit, Mask, JvExMask,
   JvSpin, Grids, RbwDataGrid4, ComCtrls, ImgList, Contnrs, ExtCtrls,
   ShapefileUnit, AbstractGridUnit, GoPhastTypes, XBase1, SutraMeshUnit,
-  SsButtonEd, RbwStringTreeCombo, DataSetUnit, VirtualTrees, System.ImageList,
+  SsButtonEd, RbwStringTreeCombo, DataSetUnit, VirtualTrees, VirtualTrees.Types, System.ImageList,
   MeshRenumberingTypes;
 
 type

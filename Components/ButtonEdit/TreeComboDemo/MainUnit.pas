@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, SsButtonEd, RbwStringTreeCombo, ExtCtrls, VirtualTrees;
+  Dialogs, StdCtrls, SsButtonEd, RbwStringTreeCombo, ExtCtrls, VirtualTrees, VirtualTrees.Types;
 
 type
   TfrmMain = class(TForm)

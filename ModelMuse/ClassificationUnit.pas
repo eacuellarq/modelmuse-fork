@@ -7,7 +7,7 @@ unit ClassificationUnit;
 
 interface
 
-uses SysUtils, StrUtils, Classes, ComCtrls, VirtualTrees, DataSetUnit,
+uses SysUtils, StrUtils, Classes, ComCtrls, VirtualTrees, VirtualTrees.Types, DataSetUnit,
   StdCtrls, PhastDataSets, RbwParser, EdgeDisplayUnit, RbwStringTreeCombo,
   System.Generics.Collections;
 

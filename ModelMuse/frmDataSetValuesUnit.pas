@@ -4,7 +4,7 @@ interface
 
 uses System.UITypes,
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, frmCustomGoPhastUnit, StdCtrls, Buttons, ExtCtrls, VirtualTrees,
+  Dialogs, frmCustomGoPhastUnit, StdCtrls, Buttons, ExtCtrls, VirtualTrees, VirtualTrees.Types,
   ComCtrls, Grids, RbwDataGrid4, JvExStdCtrls, JvListBox, SsButtonEd,
   RbwStringTreeCombo, DataSetUnit, GrayTabs;
 
